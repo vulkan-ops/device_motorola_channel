@@ -15,9 +15,9 @@
 #
 
 PRODUCT_MAKEFILES := \
-    $(LOCAL_DIR)/aosp_channel.mk
+    $(LOCAL_DIR)/revengeos_channel.mk
 
 COMMON_LUNCH_CHOICES := \
-    aosp_channel-eng \
-    aosp_channel-user \
-    aosp_channel-userdebug
+    revengeos_channel-eng \
+    revengeos_channel-user \
+    revengeos_channel-userdebug

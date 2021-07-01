@@ -19,12 +19,10 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/core_64_bit.mk)
 $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
 $(call inherit-product, $(SRC_TARGET_DIR)/product/product_launched_with_p.mk)
 
-# Inherit some common Lineage stuff
-$(call inherit-product, vendor/aosp/config/common_full_phone.mk)
-#CUSTOM_BUILD_TYPE := OFFICIAL
-TARGET_ENABLE_ADB := true
-CUSTOM_MAINTAINER := vulkan
-VANILLA_BUILD := true
+# Inherit some common revengeOS stuff
+$(call inherit-product, vendor/revengeos/config/common.mk)
+
+TARGET_BOOT_ANIMATION_RES := 1080
 
 # Inherit from channel device
 $(call inherit-product, $(LOCAL_PATH)/device.mk)
@@ -32,9 +30,12 @@ $(call inherit-product, $(LOCAL_PATH)/device.mk)
 PRODUCT_BRAND := motorola
 PRODUCT_DEVICE := channel
 PRODUCT_MANUFACTURER := motorola
-PRODUCT_NAME := aosp_channel
+PRODUCT_NAME := revengeos_channel
 PRODUCT_MODEL := moto g(7) play
 
 PRODUCT_BUILD_PROP_OVERRIDES += \
         PRODUCT_NAME=channel \
         PRIVATE_BUILD_DESC="channel-user 9 PPY29.148-140 687ae release-keys"
+
+# Set BUILD_FINGERPRINT variable to be picked up by both system and vendor build.prop
+BUILD_FINGERPRINT := motorola/channel_retail/channel:9/PPY29.148-140/687ae:user/release-keys
